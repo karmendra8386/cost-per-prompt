@@ -1,0 +1,11 @@
+<!doctype html><html><head><meta charset="utf-8"><title>CostPerPrompt — Prices</title>
+<style>body{font:14px/1.6 system-ui,sans-serif;max-width:680px;margin:32px auto;padding:0 16px;color:#052e16}table{width:100%;border-collapse:collapse}td,th{padding:6px;border-bottom:1px solid #dcfce7;text-align:left}.sub{color:#64748b}</style></head>
+<body>
+<h1>💲 CostPerPrompt — Prices & method</h1>
+<p class="sub">Public list prices, USD per 1M tokens, checked Oct 2026. Token counts are a heuristic estimate (±10–15%), not a provider tokenizer. Costs assume a reply of ~2× prompt length until a real reply is visible — use for model comparison, not billing.</p>
+<table><thead><tr><th>Model</th><th>Vendor</th><th>Input / 1M</th><th>Output / 1M</th></tr></thead><tbody id="rows"></tbody></table>
+<p>The model behind this math is <a href="https://pypi.org/project/tokenecon/">tokenecon</a>: <code>cost = in_tokens/1e6 × in_price + out_tokens/1e6 × out_price</code>. The 28× spread on the same job is the point — choosing the model is the biggest cost lever.</p>
+<p>To update prices, edit <code>pricing.js</code> and reload the extension at <code>chrome://extensions</code>.</p>
+<script src="../pricing.js"></script>
+<script>document.querySelector('#rows').innerHTML = window.CPP_PRICING.map(m=>`<tr><td>${m.name}</td><td>${m.vendor}</td><td>$${m.input.toFixed(2)}</td><td>$${m.output.toFixed(2)}</td></tr>`).join('');</script>
+</body></html>
