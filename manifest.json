@@ -47,13 +47,11 @@
     "48": "icons/icon48.png"
   },
   "manifest_version": 3,
-  "name": "CostPerPrompt — AI Chat Cost Tracker",
+  "name": "CostPerPrompt \u2014 AI Chat Cost Tracker",
   "options_page": "options/options.html",
   "permissions": [
-    "storage",
-    "activeTab",
-    "downloads"
+    "storage"
   ],
   "short_name": "CostPerPrompt",
-  "version": "0.1.1"
+  "version": "0.1.2"
 }

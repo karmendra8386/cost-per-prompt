@@ -18,8 +18,6 @@ CostPerPrompt estimates token counts and costs for text you type or view on AI c
 ## Permissions and why
 
 - `storage` — to save your per-site model choice and the local session snapshots described above.
-- `activeTab` — to interact with the chat tab you are using when you open the popup.
-- `downloads` — used only when you click an export button, to save the session JSON file to your device.
 - Host access to the five AI chat sites listed above — so the badge can read message text on those pages to estimate tokens. The extension does not run on any other website.
 
 ## Limited use disclosure
