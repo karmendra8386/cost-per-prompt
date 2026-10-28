@@ -18,3 +18,21 @@
 - Chrome Web Store review.
 
 Run the DOM test: `npm i jsdom` then `node tests/dom-test.js`.
+
+## Live install test (Oct 27, 2026, v0.1.2) — PASSED
+
+First real-browser verification: Chromium 152 (headless) with the extension loaded
+via --load-extension, driven by puppeteer-core against a ChatGPT-shaped page served
+for the chatgpt.com origin. Verified end-to-end:
+- MV3 service worker registered; extension ID assigned; zero console/page errors.
+- Content script injected the badge; conversation counter read 34 tok from two
+  visible messages; model dropdown listed all 9 models.
+- Typing a prompt updated the badge live: "18 tok in", cheapest GPT-5 nano
+  $0.000021, spread 25.0x.
+- Clicking Export downloaded cost-per-prompt-session.json WITHOUT the downloads
+  permission (Blob + anchor click) — JSON parsed with correct totals.
+- Popup page rendered the 9-model comparator, responded to typed input, and listed
+  the session snapshot persisted via chrome.storage by the content script.
+- Screenshot: ../store-assets/cpp-live-install-test.png (real capture).
+Still untested: the live sites' own logged-in DOMs (selectors target their current
+prompt-box markup; the same selectors fired correctly on the shaped page).
